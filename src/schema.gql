@@ -1,0 +1,34 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Ocr {
+  wasSuccessful: Boolean!
+  finishedBy: String!
+  finishedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Digitalization {
+  _id: ID!
+
+  """A unique number"""
+  sequenceId: Int! @deprecated(reason: "Use sequenceNumber instead")
+
+  """The current state of the digitalization"""
+  state: String!
+
+  """The channel through which the digitalization has been imported"""
+  channel: String!
+
+  """The result of OCR robot"""
+  ocr: Ocr
+}
+
+type Query {
+  digitalizations: [Digitalization!]!
+}
